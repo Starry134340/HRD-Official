@@ -33,16 +33,18 @@
    ```
 
 3. **启用GitHub Pages**
-   - 进入您的GitHub仓库页面
+   - 进入您的GitHub仓库页面：https://github.com/Starry134340/HRD-Official
    - 点击 "Settings"（设置）
    - 在左侧菜单找到 "Pages"
-   - 在 "Source" 部分，选择 "GitHub Actions"
-   - 保存设置
+   - 在 "Source" 部分，选择 "Deploy from a branch"
+   - Branch选择 "main"，文件夹选择 "/ (root)"
+   - 点击 "Save" 保存设置
 
 4. **访问网站**
-   - 等待几分钟让GitHub Actions完成部署
-   - 访问地址：`https://YOUR_USERNAME.github.io/HRD-Official/`
+   - 等待1-2分钟让GitHub Pages完成部署
+   - 访问地址：`https://starry134340.github.io/HRD-Official/`
    - 您也可以在仓库的Settings > Pages页面查看部署状态和URL
+   - 注意：如果显示404，可能需要等待几分钟让DNS生效
 
 ### 方式二：本地预览
 
