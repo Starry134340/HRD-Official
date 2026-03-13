@@ -76,10 +76,9 @@ HRD-Official/
 ├── index.html          # 主页面
 ├── styles.css          # 样式文件
 ├── script.js           # JavaScript交互
+├── CNAME               # 自定义域名配置（如使用自定义域名）
 ├── README.md           # 说明文档
-└── .github/
-    └── workflows/
-        └── deploy.yml  # GitHub Actions部署配置
+└── .gitignore          # Git忽略文件
 ```
 
 ## ✨ 功能特性
@@ -113,9 +112,47 @@ HRD-Official/
    - 仓库必须是公开的（Public）才能免费使用GitHub Pages
    - 私有仓库需要GitHub Pro账户
 
-2. **自定义域名**
-   - 在仓库Settings > Pages中可以设置自定义域名
-   - 需要配置DNS记录指向GitHub Pages
+2. **自定义域名（去掉GitHub账号名）**
+   
+   如果您想使用自定义域名（如 `https://hrd.com`），需要以下步骤：
+   
+   **步骤1：购买域名**
+   - 在域名注册商（如阿里云、腾讯云、GoDaddy等）购买域名
+   - 常见域名：`.com`、`.cn`、`.net` 等
+   
+   **步骤2：配置CNAME文件**
+   - 编辑项目根目录的 `CNAME` 文件
+   - 将 `yourdomain.com` 替换为您的实际域名（如 `hrd.com`）
+   - 提交并推送到GitHub
+   
+   **步骤3：在GitHub设置自定义域名**
+   - 访问：https://github.com/Starry134340/HRD-Official/settings/pages
+   - 在 "Custom domain" 部分输入您的域名（如 `hrd.com`）
+   - 勾选 "Enforce HTTPS"（强制HTTPS）
+   - 点击 "Save" 保存
+   
+   **步骤4：配置DNS记录**
+   - 登录您的域名注册商管理后台
+   - 添加DNS记录：
+     - **方式A（推荐）**：添加CNAME记录
+       - 类型：CNAME
+       - 主机记录：@（或留空，表示主域名）
+       - 记录值：`starry134340.github.io`
+     - **方式B**：添加A记录（如果域名不支持CNAME）
+       - 类型：A
+       - 主机记录：@
+       - 记录值：`185.199.108.153`、`185.199.109.153`、`185.199.110.153`、`185.199.111.153`
+       - （需要添加4条A记录，分别指向这4个IP）
+   
+   **步骤5：等待DNS生效**
+   - DNS配置通常需要几分钟到几小时生效
+   - 配置完成后，访问您的自定义域名即可
+   - GitHub会自动为您的域名配置SSL证书（HTTPS）
+   
+   **注意事项：**
+   - 如果使用 `www` 子域名（如 `www.hrd.com`），需要额外配置
+   - 确保CNAME文件中的域名与DNS配置一致
+   - 自定义域名配置后，原GitHub Pages URL仍然可以访问
 
 3. **HTTPS**
    - GitHub Pages自动提供HTTPS支持
